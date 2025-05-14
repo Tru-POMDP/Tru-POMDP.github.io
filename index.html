@@ -131,17 +131,14 @@
         <div class="content">
 
           <p>
-             Summary of our work, introduction?
+             we propose Tru-POMDP, a new algorithm for task planning under uncertainty that tightly integrates commonsense reasoning by LLMs with explicit belief tracking and principled POMDP planning. Our main contributions include: 
           </p>
 
-          <figure>
-        <img src="static/images/model.png" alt="图像的简要描述" >
-        <figcaption>The architecture for Tru-POMDP. (a) Task Input: Human instruction and the observed scene graph. (b) Tree of Hypothesis: An LLM infers target objects, target areas, and initial locations, producing weighted particles. (c) Hybrid Belief Update: Bayesian filtering updates the belief using particle prediction and elimination, and augments the filtered belief with LLM particles. (d) Online POMDP Planning: Belief tree search computes the optimal action with the help of dynamic action branching and an LLM-written rollout policy.</figcaption>
-      </figure>
-
-          <p>
-             Summary of our work, introduction?
-          </p>
+          <ul>
+            <li> The first framework to integrate LLM-based reasoning with principled POMDP planning for household tasks. </li>
+            <li> A novel hybrid belief modeling approach that integrates LLM-generated hypotheses with principled Bayesian filtering. </li>
+            <li> A POMDP model for open-ended object rearrangement tasks and a practical belief-tree search planner for solving such tasks efficiently under large-scale uncertainty. </li>
+          </ul>
 
         </div>
       </div>
@@ -168,8 +165,16 @@
       </figure>
 
         <p>
-            Our experiment settings
+            We compare Tru-POMDP against a set of strong baselines, including both pure LLM-based planners and tree search planners integrated with LLM reasoning. 
         </p>
+
+        <ul>
+            <li> ReAct: : A closed-loop LLM-based planner that selects actions based on current observations and immediate feedback from the environment.  </li>
+            <li> Reflexion: An extension of <i>ReAct</i> that adds a reflection module. Upon repeated failures, it analyzes the history and generates a revised plan. For fair comparison under online planning, we disable environment resets and trigger reflection after three consecutive failed actions. </li>
+            <li> ReAct* and Reflexion*: Prompt-augmented variants that provide the LLM with additional structured descriptions of the task domain, including object types, action semantics, and goal structures. </li>
+            <li> LLM-MCTS: A tree search method that generates a maximum-likelihood hypothesis of the task goal and hidden object placements using an LLM. It then performs Monte Carlo Tree Search (MCTS), repeatedly querying the LLM to guide action selection during simulation. </li>
+        </ul>
+          
       
         <figure>
         <img src="static/images/exp1.png" alt="图像的简要描述" >
