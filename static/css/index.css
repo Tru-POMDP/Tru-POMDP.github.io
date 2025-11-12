@@ -133,5 +133,30 @@ body {
   font-size: smaller;
 }
 
+/* Conference acceptance notice styling */
+.conference-notice {
+  font-weight: 800; /* extra bold */
+  font-size: 1.5rem; /* much larger font */
+  margin-top: 1.2rem; /* spacing above */
+  margin-bottom: 1.2rem; /* spacing below */
+}
+
+/* Light gray button variant for header links */
+.button.is-light-gray {
+  background-color: #e6e6e6; /* light gray */
+  color: #2c2c2c; /* darker gray text */
+  border-color: transparent;
+  font-weight: 700; /* bold */
+  font-size: 1rem; /* larger font size */
+}
+.button.is-light-gray .icon {
+  color: #2c2c2c;
+}
+.button.is-light-gray:hover,
+.button.is-light-gray:focus {
+  background-color: #d9d9d9; /* slightly darker on hover */
+  color: #1a1a1a;
+}
+
 
 
